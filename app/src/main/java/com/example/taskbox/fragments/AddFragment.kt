@@ -43,11 +43,11 @@ class AddFragment : Fragment() {
             val task = Task(0,editText)
             // Add Data to Database
             taskViewModel.addTask(task)
-            Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Tarefa adicionada !", Toast.LENGTH_LONG).show()
             // Navigate Back
             findNavController().navigate(R.id.action_addFragment_to_listFragment)
         }else{
-            Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Não é possível adicionar uma tarefa vazia", Toast.LENGTH_LONG).show()
         }
     }
 
