@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_listFragment_to_addFragment"
             app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_deleteFragment"
+            app:destination="@id/deleteFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
@@ -22,5 +25,17 @@
         <action
             android:id="@+id/action_addFragment_to_listFragment"
             app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deleteFragment"
+        android:name="com.example.taskbox.fragments.DeleteFragment"
+        android:label="fragment_delete"
+        tools:layout="@layout/fragment_delete" >
+        <action
+            android:id="@+id/action_deleteFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="currentTask"
+            app:argType="com.example.taskbox.data.Task" />
     </fragment>
 </navigation>

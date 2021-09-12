@@ -3,6 +3,7 @@ package com.example.taskbox.fragments
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskbox.R
 import com.example.taskbox.data.Task
@@ -23,6 +24,10 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = taskList[position]
         holder.itemView.text_view.text = currentItem.task
+        holder.itemView.taskLayout.setOnClickListener {
+            val action = ListFragmentDirections.actionListFragmentToDeleteFragment(currentItem)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {
