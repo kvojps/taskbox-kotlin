@@ -24,4 +24,8 @@ class TaskViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
+    fun removeTask(task: Task) {
+        TODO()
+    }
+
 }
