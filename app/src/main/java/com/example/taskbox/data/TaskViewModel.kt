@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class TaskViewModel(application: Application): AndroidViewModel(application) {
 
-    private val readAllTasks: LiveData<List<Task>>
+    val readAllTasks: LiveData<List<Task>>
     private val repository: TaskRepository
 
     init {
