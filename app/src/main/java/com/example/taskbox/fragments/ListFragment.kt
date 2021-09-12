@@ -11,20 +11,22 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.taskbox.R
 import com.example.taskbox.data.TaskViewModel
-import kotlinx.android.synthetic.main.fragment_list.view.*
+import com.example.taskbox.databinding.FragmentListBinding
 
 class ListFragment : Fragment() {
 
     private lateinit var taskViewModel: TaskViewModel
+    private var _binding: FragmentListBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_list, container, false)
+    ): View{
+        _binding = FragmentListBinding.inflate(inflater, container, false)
 
         val adapter = ListAdapter()
-        val recyclerView = view.recyclerview
+        val recyclerView = binding.recyclerview
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
@@ -33,11 +35,11 @@ class ListFragment : Fragment() {
             adapter.setTask(task)
         } )
 
-        view.floatingActionButton.setOnClickListener {
+        binding.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
 
-        return view
+        return binding.root
     }
 
 }

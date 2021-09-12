@@ -12,39 +12,36 @@ import androidx.navigation.fragment.findNavController
 import com.example.taskbox.R
 import com.example.taskbox.data.Task
 import com.example.taskbox.data.TaskViewModel
-import kotlinx.android.synthetic.main.fragment_add.*
-import kotlinx.android.synthetic.main.fragment_add.view.*
+import com.example.taskbox.databinding.FragmentAddBinding
 
 class AddFragment : Fragment() {
 
     private lateinit var taskViewModel: TaskViewModel
+    private var _binding: FragmentAddBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_add, container, false)
+    ): View {
+        _binding = FragmentAddBinding.inflate(inflater, container, false)
 
         taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
 
-        view.add_btn.setOnClickListener {
+        binding.addBtn.setOnClickListener {
             insertDataToDatabase()
         }
 
-        return view
+        return binding.root
     }
 
     private fun insertDataToDatabase() {
-        val editText = edit_text.text.toString()
+        val editText = binding.editText.text.toString()
 
         if(inputCheck(editText)){
-            // Create User Object
             val task = Task(0,editText)
-            // Add Data to Database
             taskViewModel.addTask(task)
             Toast.makeText(requireContext(), "Tarefa adicionada !", Toast.LENGTH_LONG).show()
-            // Navigate Back
             findNavController().navigate(R.id.action_addFragment_to_listFragment)
         }else{
             Toast.makeText(requireContext(), "Não é possível adicionar uma tarefa vazia", Toast.LENGTH_LONG).show()
