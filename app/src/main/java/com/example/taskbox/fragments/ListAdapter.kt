@@ -12,7 +12,6 @@ import kotlinx.android.synthetic.main.item_task.view.*
 class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
     private var taskList = emptyList<Task>()
 
-
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
