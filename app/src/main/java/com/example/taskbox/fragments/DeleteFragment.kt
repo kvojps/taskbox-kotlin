@@ -47,7 +47,7 @@ class DeleteFragment : Fragment() {
             Toast.makeText(requireContext(),"Tarefa apagada com sucesso",Toast.LENGTH_SHORT).show()
         }
         builder.setNegativeButton("Não") {_,_->}
-        builder.setTitle("Apagar ${args.currentTask.task} ?")
+        builder.setTitle("Apagar tarefa: ${args.currentTask.task} ?")
         builder.setMessage("Você tem certeza ?")
         builder.create().show()
 
