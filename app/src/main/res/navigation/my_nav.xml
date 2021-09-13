@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/deleteFragment"
         android:name="com.example.taskbox.fragments.DeleteFragment"
-        android:label="fragment_delete"
+        android:label="Apagar tarefa"
         tools:layout="@layout/fragment_delete" >
         <action
             android:id="@+id/action_deleteFragment_to_listFragment"

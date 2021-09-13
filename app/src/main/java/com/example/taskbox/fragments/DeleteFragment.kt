@@ -6,6 +6,7 @@ import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.taskbox.R
 import com.example.taskbox.data.TaskViewModel
@@ -36,6 +37,7 @@ class DeleteFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.menu_delete) {
             deleteTask()
+            findNavController().navigate(R.id.action_deleteFragment_to_listFragment)
         }
         return super.onOptionsItemSelected(item)
     }
